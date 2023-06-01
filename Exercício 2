@@ -1,0 +1,25 @@
+def realizar_backup(dicionario_principal, dicionario_backup):
+    
+    dicionario_backup.update(dicionario_principal)
+    
+    print("Realizando backup...")
+    print("Dados do dicionário principal:")
+    for chave, valor in dicionario_principal.items():
+        print(f"Chave: {chave}, Valor: {valor}")
+    
+    dicionario_principal.clear()
+
+dicionario_principal = {}
+dicionario_backup = {}
+
+for i in range(5):
+    print("----------------------------")
+    chave = input("Digite uma chave: ")
+    valor = input("Digite um valor: ")
+
+    dicionario_principal[chave] = valor
+    realizar_backup(dicionario_principal, dicionario_backup)
+
+print("\nDados finais:")
+print("Dicionário Principal:", dicionario_principal)
+print("Dicionário de Backup:", dicionario_backup)
