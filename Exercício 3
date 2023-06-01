@@ -1,0 +1,86 @@
+class Automovel:
+    def __init__(self, marca, modelo):
+        self.marca = marca
+        self.modelo = modelo
+
+    def acelerar(self):
+        pass
+
+    def frear(self):
+        pass
+
+
+class Carro(Automovel):
+    def __init__(self, marca, modelo, cor):
+        super().__init__(marca, modelo)
+        self.cor = cor
+
+    def acelerar(self):
+        print(f"O carro {self.modelo} está acelerando.")
+
+    def frear(self):
+        print(f"O carro {self.modelo} está freando.")
+
+    def ligar_radio(self):
+        print(f"O rádio do carro {self.modelo} está ligado.")
+
+
+class Caminhao(Automovel):
+    def __init__(self, marca, modelo, capacidade_carga):
+        super().__init__(marca, modelo)
+        self.capacidade_carga = capacidade_carga
+
+    def acelerar(self):
+        print(f"O caminhão {self.modelo} está acelerando.")
+
+    def frear(self):
+        print(f"O caminhão {self.modelo} está freando.")
+
+    def carregar(self):
+        print(f"O caminhão {self.modelo} está sendo carregado.")
+
+
+class Caminhonete(Automovel):
+    def __init__(self, marca, modelo, tracao):
+        super().__init__(marca, modelo)
+        self.tracao = tracao
+
+    def acelerar(self):
+        print(f"A caminhonete {self.modelo} está acelerando.")
+
+    def frear(self):
+        print(f"A caminhonete {self.modelo} está freando.")
+
+    def engatar_4x4(self):
+        print(f"A caminhonete {self.modelo} engatou a tração 4x4.")
+
+
+class Moto(Automovel):
+    def __init__(self, marca, modelo, cilindradas):
+        super().__init__(marca, modelo)
+        self.cilindradas = cilindradas
+
+    def acelerar(self):
+        print(f"A moto {self.modelo} está acelerando.")
+
+    def frear(self):
+        print(f"A moto {self.modelo} está freando.")
+
+    def empinar(self):
+        print(f"A moto {self.modelo} está empinando.")
+
+
+# Exemplo de uso das classes
+
+# Criando objetos das subclasses
+carro1 = Carro("Fiat", "Palio", "Vermelho")
+caminhao1 = Caminhao("Volvo", "FH460", 15000)
+caminhonete1 = Caminhonete("Toyota", "Hilux", "4x4")
+moto1 = Moto("Honda", "CBR600RR", 600)
+
+# Chamando os métodos dos objetos, que são polimórficos
+carro1.acelerar()
+carro1.ligar_radio()
+caminhao1.frear()
+caminhonete1.engatar_4x4()
+moto1.empinar()
