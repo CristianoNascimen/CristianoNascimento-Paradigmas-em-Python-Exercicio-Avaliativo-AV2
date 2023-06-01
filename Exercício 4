@@ -1,0 +1,114 @@
+class Produto:
+    def __init__(self, nome, preco, descricao):
+        self.nome = nome
+        self.preco = preco
+        self.descricao = descricao
+
+    def calcular_preco_com_desconto(self):
+        pass
+
+    def exibir_informacoes(self):
+        pass
+
+
+class Livro(Produto):
+    def __init__(self, nome, preco, descricao, autor):
+        super().__init__(nome, preco, descricao)
+        self.autor = autor
+
+    def calcular_preco_com_desconto(self):
+        return self.preco * 0.9  # 10% de desconto
+
+    def exibir_informacoes(self):
+        print("-----Informações do Livro-----")
+        print("Nome:", self.nome)
+        print("Preço:", self.preco)
+        print("Descrição:", self.descricao)
+        print("Autor\n:", self.autor)
+
+
+class CD(Produto):
+    def __init__(self, nome, preco, descricao, artista):
+        super().__init__(nome, preco, descricao)
+        self.artista = artista
+
+    def calcular_preco_com_desconto(self):
+        return self.preco * 0.8  # 20% de desconto
+
+    def exibir_informacoes(self):
+        print("-----Informações do CD-----")
+        print("Nome:", self.nome)
+        print("Preço:", self.preco)
+        print("Descrição:", self.descricao)
+        print("Artista:", self.artista)
+
+
+class DVD(Produto):
+    def __init__(self, nome, preco, descricao, diretor):
+        super().__init__(nome, preco, descricao)
+        self.diretor = diretor
+
+    def calcular_preco_com_desconto(self):
+        return self.preco * 0.7  # 30% de desconto
+
+    def exibir_informacoes(self):
+        print("-----Informações do DVD-----")
+        print("Nome:", self.nome)
+        print("Preço:", self.preco)
+        print("Descrição:", self.descricao)
+        print("Diretor:", self.diretor)
+
+
+# Função para exibir o menu e instanciar a classe escolhida pelo usuário
+def exibir_menu():
+    while True:
+        print("MENU:")
+        print("1. Livro")
+        print("2. CD")
+        print("3. DVD")
+        print("0. Sair")
+
+        opcao = input("Escolha uma opção: ")
+
+        if opcao == "1":
+            nome = input("Digite o nome do livro: ")
+            preco = float(input("Digite o preço do livro (preço sem virgula): "))
+            descricao = input("Digite a descrição do livro: ")
+            autor = input("Digite o autor do livro: ")
+
+            livro = Livro(nome, preco, descricao, autor)
+            livro.exibir_informacoes()
+            print("Preço com desconto:", livro.calcular_preco_com_desconto())
+            print()
+
+        elif opcao == "2":
+            nome = input("Digite o nome do CD: ")
+            preco = float(input("Digite o preço do livro (preço sem virgula): "))
+            descricao = input("Digite a descrição do CD: ")
+            artista = input("Digite o artista do CD: ")
+
+            cd = CD(nome, preco, descricao, artista)
+            cd.exibir_informacoes()
+            print("Preço com desconto:", cd.calcular_preco_com_desconto())
+            print()
+
+        elif opcao == "3":
+            nome = input("Digite o nome do DVD: ")
+            preco = float(input("Digite o preço do livro (preço sem virgula): "))
+            descricao = input("Digite a descrição do DVD: ")
+            diretor = input("Digite o diretor do DVD: ")
+
+            dvd = DVD(nome, preco, descricao, diretor)
+            dvd.exibir_informacoes()
+            print("Preço com desconto:", dvd.calcular_preco_com_desconto())
+            print()
+
+        elif opcao == "0":
+            break
+
+        else:
+            print("Opção inválida! Por favor, escolha uma opção válida.")
+
+
+# Execução do programa
+exibir_menu()
