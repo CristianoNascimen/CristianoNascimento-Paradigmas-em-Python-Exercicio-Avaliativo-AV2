@@ -1,0 +1,42 @@
+def cadastrar_pessoa():
+    nome = input("Digite o nome da pessoa: ")
+    idade = int(input("Digite a idade da pessoa: "))
+    cpf = input("Digite o CPF da pessoa: ")
+    return {"nome": nome, "idade": idade, "cpf": cpf}
+
+def exibir_cadastrados(cadastrados):
+    print("\n--- Pessoas cadastradas ---")
+    for pessoa in cadastrados:
+        print("Nome:", pessoa["nome"])
+        print("Idade:", pessoa["idade"])
+        print("CPF:", pessoa["cpf"])
+        print("--------------------------")
+
+def separar_menores_idade(cadastrados):
+    menores_idade = []
+
+    for pessoa in cadastrados:
+        if pessoa["idade"] < 18:
+            menores_idade.append(pessoa)
+
+    return menores_idade
+
+# Dicionário principal para armazenar as pessoas cadastradas
+cadastrados = []
+
+while True:
+    opcao = input("Deseja cadastrar uma pessoa? (S/N): ")
+
+    if opcao.upper() == "N":
+        break
+
+    pessoa = cadastrar_pessoa()
+    cadastrados.append(pessoa)
+
+exibir_cadastrados(cadastrados)
+
+menores_idade = separar_menores_idade(cadastrados)
+
+print("\n--- Pessoas menores de idade ---")
+exibir_cadastrados(menores_idade)
+
